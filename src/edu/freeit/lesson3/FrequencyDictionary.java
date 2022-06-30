@@ -8,6 +8,7 @@ public class FrequencyDictionary {
         Scanner scanner = new Scanner(System.in);
         String sentence = scanner.nextLine();
         System.out.println(getFrequency(sentence));
+        scanner.close();
     }
     private static String getFrequency(String sentence) {
         String[] words = sentence.split(" ");
