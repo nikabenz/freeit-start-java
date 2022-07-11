@@ -1,6 +1,8 @@
 package edu.freeit.lesson6;
 
 import java.util.StringJoiner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class NoteBook {
     private final int length = 10;
@@ -27,12 +29,18 @@ public class NoteBook {
         return length;
     }
 
-    public void setArrayOfNotes(Note[] arrayOfNotes) {
-        this.arrayOfNotes = arrayOfNotes;
+    public int getSizeArrayOfNotes() {
+        int size = 0;
+        for (Note note : arrayOfNotes) {
+            if (note != null) {
+                size++;
+            }
+        }
+        return size;
     }
 
-    public void addNote(Note note, int index) {
-        this.arrayOfNotes[index] = note;
+    public void setArrayOfNotes(Note[] arrayOfNotes) {
+        this.arrayOfNotes = arrayOfNotes;
     }
 
     public void setOwner(Person owner) {
@@ -43,6 +51,10 @@ public class NoteBook {
         for (Note note : arrayOfNotes) {
             System.out.println(note + "\n");
         }
+    }
+
+    public void addNote(Note note, int index) {
+        this.arrayOfNotes[index] = note;
     }
 
     public Note[] sort() {
@@ -73,6 +85,35 @@ public class NoteBook {
         return frequency;
     }
 
+    public String defineFrequencyIndividualCase(String individualCase) {
+        Pattern pattern = Pattern.compile(".*" + individualCase + ".*");
+        Matcher matcher;
+        Note[] temp = arrayOfNotes;
+        StringBuilder frequency = new StringBuilder();
+        StringBuilder cases;
+        int totalNumberOfCase = 0;
+        int n;
+        for (int i = 0; i < temp.length; i++) {
+            n = 0;
+            cases = new StringBuilder(temp[i].getText());
+            matcher = pattern.matcher(cases);
+            while (matcher.find()) {
+                n++;
+                //System.out.println(matcher.group() + " -> " + n);
+            }
+            if ( n != 0) {
+                totalNumberOfCase += n;
+                frequency.append(cases).append(";\n");
+            }
+        }
+        String delimeter;
+        if (totalNumberOfCase == 1) {
+            delimeter = " case -> \n";
+        } else {
+            delimeter = " cases -> \n";
+        }
+        return totalNumberOfCase + delimeter + frequency.toString();
+    }
     @Override
     public String toString() {
         return new StringJoiner(", ", NoteBook.class.getSimpleName() + "[", "]")
