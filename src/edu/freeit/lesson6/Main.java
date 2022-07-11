@@ -5,11 +5,11 @@ public class Main {
         Person mars = new Person(1, "mars");
         NoteBook noteBook = new NoteBook(11, " diary");
         noteBook.setOwner(mars);
-        Note note1 = new Note(110, "read a book in English");
-        noteBook.addNote(note1, 0);
+        //Note note1 = new Note(110, "read a book in English");
+        //noteBook.addNote(note1, 0);
         Note note2 = new Note(111, "read a magazine");
         noteBook.addNote(note2, 1);
-        Note note3 = new Note(112, "write and read articles");
+        Note note3 = new Note(112, "write and read articles, analyze articles");
         noteBook.addNote(note3, 2);
         for (int i = 3; i < noteBook.getLength(); i++) {
             if (i % 2 == 0) {
@@ -30,5 +30,8 @@ public class Main {
         System.out.println(noteBook.defineFrequencyIndividualCase("read"));
         System.out.println(noteBook.defineFrequencyIndividualCase("to-do"));
         System.out.println(noteBook.defineFrequencyIndividualCase("write"));
+        System.out.println(noteBook.defineFrequencyIndividualCase("analyze"));
+        System.out.println(noteBook.defineFrequencyIndividualCase("\\d"));
+        System.out.println("number of notes -> " + noteBook.getSizeArrayOfNotes());
     }
 }

@@ -95,7 +95,7 @@ public class NoteBook {
         int n;
         for (int i = 0; i < temp.length; i++) {
             n = 0;
-            cases = new StringBuilder(temp[i].getText());
+            cases = new StringBuilder(temp[i] != null ? temp[i].getText() : "");
             matcher = pattern.matcher(cases);
             while (matcher.find()) {
                 n++;
