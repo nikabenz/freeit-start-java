@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5841d17d-0041-49f1-8f94-f9543b1029f5" name="Changes" comment="Homework6 print sort and defineFrequency for notes">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/freeit-start-java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/freeit/lesson6/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/freeit/lesson6/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/freeit/lesson6/NoteBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/freeit/lesson6/NoteBook.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="lesson5" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2B5axzotBuXgx6KgxupcHXtNQnP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Program/java/first-classes-new/src/edu/freeit/nikabenz/ReverseOrder.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.freeit.lesson6.Main" />
+      <module name="freeit-start-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.freeit.lesson6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringCreator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.freeit.lesson2.StringCreator" />
+      <module name="freeit-start-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.freeit.lesson2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicTacToeGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.freeit.lesson6.TicTacToeGame" />
+      <module name="freeit-start-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.freeit.lesson6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="edu.freeit.lesson6.BubbleSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.freeit.lesson6.BubbleSort" />
+      <module name="freeit-start-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.freeit.lesson6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="edu.freeit.lesson6.GCDOfTwoNumbers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.freeit.lesson6.GCDOfTwoNumbers" />
+      <module name="freeit-start-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.freeit.lesson6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TicTacToeGame" />
+        <item itemvalue="Application.StringCreator" />
+        <item itemvalue="Application.edu.freeit.lesson6.GCDOfTwoNumbers" />
+        <item itemvalue="Application.edu.freeit.lesson6.BubbleSort" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5841d17d-0041-49f1-8f94-f9543b1029f5" name="Changes" comment="" />
+      <created>1656198657533</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656198657533</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1656198843464</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656198843464</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Homework2">
+      <created>1656199533148</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656199533148</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Homework2 add string-literal">
+      <created>1656349363175</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656349363175</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Homework3">
+      <created>1656623359319</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656623359319</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Homework3 add method close">
+      <created>1656623952859</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1656623952859</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Homework4 I need help">
+      <created>1657056787897</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657056787897</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Homework5 tasks from part 1 of java for beginners">
+      <created>1657206757521</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657206757521</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Homework6 print sort and defineFrequency for notes">
+      <created>1657463494155</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657463494155</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Homework2" />
+    <MESSAGE value="Homework2 add string-literal" />
+    <MESSAGE value="Homework3" />
+    <MESSAGE value="Homework3 add method close" />
+    <MESSAGE value="Homework4 I need help" />
+    <MESSAGE value="Homework5 tasks from part 1 of java for beginners" />
+    <MESSAGE value="Homework6 print sort and defineFrequency for notes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Homework6 print sort and defineFrequency for notes" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/freeit_start_java$StringCreator.ic" NAME="StringCreator Coverage Results" MODIFIED="1656348746953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.freeit.lesson2.*</FILTER>
+    </SUITE>
+  </component>
+</project>
