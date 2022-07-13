@@ -1,45 +1,47 @@
 package edu.freeit.lesson4;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
 // у человека всегда О, Х выставляется рандомно
-// так как выхода из цикла do-while в main вообще нет
-// (зациклены два хода, рандомный и ручной ввод, два вывода поля field),
-// то, чтоб не вылететь, приходится тупо следовать инструкции, такой же тупой.
-// Чтоб ввести индексы ячейки двумерного массива для помещения туда своего О,
-// приходится выбрать @
-// !!!И при наступлении выйгрышной ситуации нажать (по запросу) вместо @ уже *
-// странно, что не попросили два раза притопнуть и пять раз прихлопнуть((((((
 public class TicTacToeGame {
     public static char ticTacToeWinner = ' ';
+    public static int length = 3;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String stopGame;
-        char[][] field = new char[3][3];
+        char[][] field = new char[length][length];
         int[] step;
         int x;
         int y;
+        int counter = 0;
         cleanField(field);
+        int maxCountOfSteps = length * length;
         do {
             step = calculateStep(field);
             x = step[0];
             y = step[1];
             outputField('X', x, y, field);
-            System.out.println(" yours turn -> @ or stop game -> *");
-            stopGame = scanner.nextLine();
-            if (stopGame.equals("*")) {
-                defineWinner(field);
+            if (defineWinner('X', x, y, field)) {
                 break;
             }
+            counter++;
+            if (counter == maxCountOfSteps) {
+                break;
+            }
+            System.out.println(" your turn: \n");
             x = scanner.nextInt();
             y = scanner.nextInt();
             outputField('O', x, y, field);
-            System.out.println(" yours turn -> @ or stop game -> *");
-            stopGame = scanner.nextLine();
-        } while (!stopGame.equals("*"));
-        System.out.println(defineWinner(field));//здесь это для проверки
-        System.out.println(ticTacToeWinner);//здесь это для проверки
+            if (defineWinner('O', x, y, field)) {
+                break;
+            }
+            counter++;
+            if (counter == maxCountOfSteps) {
+                break;
+            }
+        } while (true);
         if (ticTacToeWinner != ' ') {
             System.out.println("winner is " + ticTacToeWinner);
         } else {
@@ -50,11 +52,8 @@ public class TicTacToeGame {
     }
 
     public static void cleanField(char[][] field) {
-        //Arrays.fill(field, ' ');
         for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field[i].length; j++) {
-                field[i][j] = ' ';
-            }
+            Arrays.fill(field[i], ' ');
         }
     }
 
@@ -82,62 +81,53 @@ public class TicTacToeGame {
         int[] step = new int[2];
         Random random = new Random();
         do {
-            step[0] = random.nextInt(3);
-            step[1] = random.nextInt(3);
+            step[0] = random.nextInt(length);
+            step[1] = random.nextInt(length);
         } while (field[step[0]][step[1]] != ' ');
         return step;
     }
 
-    public static boolean defineWinner(char[][] field) {
-        boolean winner = false;
-        int win = 0;
-        for (int i = 1; i < field.length; i++) {
-            if (field[0][0] != field[i][i] && field[0][0] != ' ') {
-                win++;
+    public static boolean defineWinner(char playerStep, int x, int y, char[][] field) {
+        int winner = 0;
+        for (int i = 0; i < length; i++) {
+            if (field[i][i] == playerStep) {
+                winner++;
             }
         }
-        if (win == 0) {
-            winner = true;
+        if (winner == length) {
             ticTacToeWinner = field[0][0];
-            return winner;
+            return true;
         }
-        win = 0;
-        for (int i = 1; i < field.length; i++) {
-            if (field[field.length - 1][0] != field[field.length - 1 - i][i] && field[field.length - 1][0] != ' ') {
-                win++;
+        winner = 0;
+        for (int i = 0; i < length; i++) {
+            if (field[length - 1 - i][i] == playerStep) {
+                winner++;
             }
         }
-        if (win == 0) {
-            winner = true;
-            ticTacToeWinner = field[field.length - 1][0];
-            return winner;
+        if (winner == length) {
+            ticTacToeWinner = field[length - 1][0];
+            return true;
         }
-        for (int i = 0; i < field.length; i++) {
-            win = 0;
-            for (int j = 1; j < field[i].length; j++) {
-                if (field[0][i] != field[j][i] && field[0][i] != ' ') {
-                    win++;
-                }
-            }
-            if (win == 0) {
-                winner = true;
-                ticTacToeWinner = field[0][i];
-                return winner;
+        winner = 0;
+        for (int j = 0; j < length; j++) {
+            if (field[x][j] == playerStep) {
+                winner++;
             }
         }
-        for (int i = 0; i < field.length; i++) {
-            win = 0;
-            for (int j = 1; j < field[i].length; j++) {
-                if (field[i][0] != field[i][j] && field[i][0] != ' ') {
-                    win++;
-                }
-            }
-            if (win == 0) {
-                winner = true;
-                ticTacToeWinner = field[i][0];
-                return winner;
+        if (winner == length) {
+            ticTacToeWinner = playerStep;
+            return true;
+        }
+        winner = 0;
+        for (int i = 0; i < length; i++) {
+            if (field[i][y] == playerStep) {
+                winner++;
             }
         }
-        return winner;
+        if (winner == length) {
+            ticTacToeWinner = playerStep;
+            return true;
+        }
+        return false;
     }
 }
