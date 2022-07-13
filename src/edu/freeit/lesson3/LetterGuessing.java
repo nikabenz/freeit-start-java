@@ -1,12 +1,15 @@
 package edu.freeit.lesson3;
 
 import java.util.Scanner;
-//я не смогла организовать логику так, чтоб не дублировать код
-//первые две попытки вслепую, чтоб начать ориентировать человека,
-//сравнивая его два шага:
+
+//сравниваю его два шага:
 //удаляется(chilly)-приближается(warmly) и
 //насколько(hot - рядом, в радиусе двух букв; cold - удалён на десять и более))
 public class LetterGuessing {
+    final static char[] LETTERS = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+            'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+            'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String user;
@@ -18,24 +21,16 @@ public class LetterGuessing {
         System.out.println("game over ");
         scanner.close();
     }
+
     private static void getResult(Scanner scanner) {
-        final String fail = "fail";
-        final String bingo = "bingo";
-        final String cold = "cold";
-        final String chilly = "chilly";
-        final String hot = "hot";
-        final String warmly = "warmly";
-        final char[] letters = {'a','b','c','d','e','f','g','h',
-                          'i','j','k','l','m','n','o','p',
-                          'q','r','s','t','u','v','w','x','y','z'};
         int trueIndex = 0;
         int myIndex = 0;
         int step = 0;
         int nextStep;
         char letter;
-        final char guess = letters[(int) (Math.random()*26)];
-        for (int j = 0; j < letters.length; j++) {
-            if (guess == letters[j]) {
+        final char guess = LETTERS[(int) (Math.random() * 26)];
+        for (int j = 0; j < LETTERS.length; j++) {
+            if (guess == LETTERS[j]) {
                 trueIndex = j;
                 break;
             }
@@ -43,47 +38,56 @@ public class LetterGuessing {
         System.out.println("guess the letter: ");
         letter = scanner.nextLine().charAt(0);
         if (letter == guess) {
-            System.out.println(bingo);
+            System.out.println("bingo");
             return;
         }
-        for (int i = 0; i < letters.length; i++) {
-            if (letter == letters[i]) {
-                myIndex = i;
-                break;
-            }
-        }
+        myIndex = defineMyIndex(letter);
         step = Math.abs(trueIndex - myIndex);
+        if (step <= 2) {
+            System.out.print("hot, ");
+        } else if (step >= 10) {
+            System.out.print("cold, ");
+        } else {
+            System.out.print("chilly, ");
+        }
         System.out.println("try again ");
-        do {
-            letter = scanner.nextLine().charAt(0);
+        letter = scanner.nextLine().charAt(0);
+        while (letter != '*') {
             if (letter == guess) {
-                System.out.println(bingo);
+                System.out.println("bingo");
                 return;
             }
-            for (int i = 0; i < letters.length; i++) {
-                if (letter == letters[i]) {
-                    myIndex = i;
-                    break;
-                }
-            }
+            myIndex = defineMyIndex(letter);
             nextStep = Math.abs(trueIndex - myIndex);
             if (nextStep > step) {
                 if (nextStep >= 10) {
-                    System.out.println(cold);
+                    System.out.println("cold");
                 } else {
-                    System.out.println(chilly);
+                    System.out.println("chilly");
                 }
             } else {
                 if (nextStep <= 2) {
-                    System.out.println(hot);
+                    System.out.println("hot");
                 } else {
-                    System.out.println(warmly);
+                    System.out.println("warmly");
                 }
             }
             step = nextStep;
             System.out.println(" try again? no - *");
-        } while (letter != '*');
-        System.out.println(fail);
+            letter = scanner.nextLine().charAt(0);
+        }
+        System.out.println("fail");
         System.out.println("you didn't guess -> " + guess);
+    }
+
+    public static int defineMyIndex(char letter) {
+        int myIndex = 0;
+        for (int i = 0; i < LETTERS.length; i++) {
+            if (letter == LETTERS[i]) {
+                myIndex = i;
+                break;
+            }
+        }
+        return myIndex;
     }
 }
