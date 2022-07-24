@@ -1,11 +1,6 @@
-package edu.freeit.lesson7;
+package edu.freeit.lesson4.addex;
 
-import com.sun.source.tree.PatternTree;
-
-import java.text.DateFormat;
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class StrStrBuilderBufferEx {
     public static void main(String[] args) {
@@ -45,53 +40,53 @@ public class StrStrBuilderBufferEx {
 
             System.out.println(sb[i].toString());
         }
-        String source = "Object-oriented programming is a programming language model organized around objects " +
-                "rather than \"actions\" and data rather than logic. Object-oriented programming blabla. " +
-                "Object-oriented programming bla.";
+//        String source = "Object-oriented programming is a programming language model organized around objects " +
+//                "rather than \"actions\" and data rather than logic. Object-oriented programming blabla. " +
+//                "Object-oriented programming bla.";
         //changeToOOP(source);
         //System.out.println(doOOP(source));
-        System.out.println(Arrays.toString(takeTwoLettersFromMiddle("er","erro","practice","hero","lesson")));
+        System.out.println(Arrays.toString(takeTwoLettersFromMiddle("er", "erro", "practice", "hero", "lesson")));
     }
 
-    public static void changeToOOP(String source) {
-        Pattern pattern = Pattern.compile("Object-oriented programming");
-        Matcher matcher = pattern.matcher(source);
-        int i = 0;
-        while (true) {
-            if (matcher.find()) {
-                i++;
-                System.out.println(matcher.group().lastIndexOf("Object-oriented programming"));
-                //.replaceAll("Object-oriented programming", "OOP"));
-                System.out.println(i);
-            } else {
-                break;
-            }
-        }
-    }
-
-
-    public static String doOOP(String source) {
-        StringBuilder stringBuilder = new StringBuilder(source);
-        int startIndex;
-        int finishIndex;
-        Pattern pattern = Pattern.compile("Object-oriented programming");
-        Matcher matcher = pattern.matcher(stringBuilder);
-        int i = 0;
-        while (matcher.find()) {
-            i++;
-            if (i % 2 == 0) {
-                for (int j = 0; j < "Object-oriented programming".length(); j++) {
-                }
-                System.out.println(matcher.group().replaceAll("Object-oriented programming", "OOP"));
-            }
-        }
-        System.out.println("index " + i);
-        for (int j = 0; j < i; j++) {
-            if (i % 2 == 0) {
-            }
-        }
-        return stringBuilder.toString();
-    }
+    //    public static void changeToOOP(String source) {
+//        Pattern pattern = Pattern.compile("Object-oriented programming");
+//        Matcher matcher = pattern.matcher(source);
+//        int i = 0;
+//        while (true) {
+//            if (matcher.find()) {
+//                i++;
+//                System.out.println(matcher.group().lastIndexOf("Object-oriented programming"));
+//                //.replaceAll("Object-oriented programming", "OOP"));
+//                System.out.println(i);
+//            } else {
+//                break;
+//            }
+//        }
+//    }
+//
+//
+//    public static String doOOP(String source) {
+//        StringBuilder stringBuilder = new StringBuilder(source);
+//        int startIndex;
+//        int finishIndex;
+//        Pattern pattern = Pattern.compile("Object-oriented programming");
+//        Matcher matcher = pattern.matcher(stringBuilder);
+//        int i = 0;
+//        while (matcher.find()) {
+//            i++;
+//            if (i % 2 == 0) {
+//                for (int j = 0; j < "Object-oriented programming".length(); j++) {
+//                }
+//                System.out.println(matcher.group().replaceAll("Object-oriented programming", "OOP"));
+//            }
+//        }
+//        System.out.println("index " + i);
+//        for (int j = 0; j < i; j++) {
+//            if (i % 2 == 0) {
+//            }
+//        }
+//        return stringBuilder.toString();
+//    }
     public static String[] takeTwoLettersFromMiddle(String... words) {
         String[] lettersFromMiddle = new String[words.length];
         int startIndex;
@@ -101,6 +96,6 @@ public class StrStrBuilderBufferEx {
             endIndex = startIndex + 2;
             lettersFromMiddle[i] = words[i].substring(startIndex, endIndex);
         }
-        return  lettersFromMiddle;
+        return lettersFromMiddle;
     }
 }
