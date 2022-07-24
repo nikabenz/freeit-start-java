@@ -63,7 +63,13 @@ public class TicTacToeGame {
             return;
         }
         field[x][y] = playerStep;
-        System.out.println("___________________");
+        String border;
+        if (length == 3) {
+            border = "_".repeat(19);
+        } else {
+            border = "_".repeat(19 + (length - 3) * 6);
+        }
+        System.out.println(border);
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
                 if (j == field[i].length - 1) {
@@ -73,7 +79,7 @@ public class TicTacToeGame {
                     System.out.printf("|  %1s  ", field[i][j]);
                 }
             }
-            System.out.println("-------------------");
+            System.out.println(border);
         }
     }
 
