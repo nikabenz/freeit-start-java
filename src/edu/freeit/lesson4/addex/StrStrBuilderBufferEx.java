@@ -38,12 +38,9 @@ public class StrStrBuilderBufferEx {
 
     public static String[] takeTwoLettersFromMiddle(String... words) {
         String[] lettersFromMiddle = new String[words.length];
-        int startIndex;
-        int endIndex;
         for (int i = 0; i < words.length; i++) {
-            startIndex = (words[i].length() / 2) - 1;
-            endIndex = startIndex + 2;
-            lettersFromMiddle[i] = words[i].substring(startIndex, endIndex);
+            int indexFrom = (words[i].length() / 2) - 1;
+            lettersFromMiddle[i] = words[i].substring(indexFrom, indexFrom + 2);
         }
         return lettersFromMiddle;
     }
