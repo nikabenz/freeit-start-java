@@ -1,11 +1,10 @@
 package edu.freeit.lesson7;
 
-import java.lang.reflect.Array;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.StringJoiner;
 
-public class Note {
+public class Note implements Comparable<Note> {
     private Date date;
     private Activity type;
     private String header;
@@ -60,5 +59,10 @@ public class Note {
                 .add("header='" + header + "'")
                 .add("text='" + text + "'")
                 .toString();
+    }
+
+    @Override
+    public int compareTo(Note other) {
+        return this.getDate().before(other.getDate()) ? -1 : this.getDate().after(other.getDate()) ? 1 : 0;
     }
 }

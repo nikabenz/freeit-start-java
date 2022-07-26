@@ -9,21 +9,21 @@ public class NoteBookRunner {
         String delimiter = "-".repeat(50);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
         NoteBook noteBook = new NoteBook(111, " diary");
-        Note note1 = new Note(new GregorianCalendar().getTime(), Activity.COOKING, "I like cooking", "read a book in English");
-        noteBook.addNote(note1, 0);
+        Note note1 = new Note(new GregorianCalendar().getTime(), Activity.COOKING, "I like cooking", "read 999999 book in English");
+        noteBook.addNote(note1);
         Note note2 = new Note(simpleDateFormat.parse("25.03.2020"), Activity.FITNESS, "I like fitness", "read a magazine");
-        noteBook.addNote(note2, 1);
+        noteBook.addNote(note2);
         Note note3 = new Note(simpleDateFormat.parse("25.05.2020"), Activity.FITNESS, "I like fitness","write and read articles, analyze articles");
-        noteBook.addNote(note3, 2);
+        noteBook.addNote(note3);
         for (int i = 5; i < noteBook.getLength() - 100; i++) {
             if (i % 2 == 0) {
-                noteBook.addNote(new Note(simpleDateFormat.parse("25.07.2020"), Activity.FITNESS, "I like fitness","to-do list " + i + " and read a lot of letters"), i);
+                noteBook.addNote(new Note(simpleDateFormat.parse("25.07.2020"), Activity.FITNESS, "I like fitness","to-do list " + i + " and read a lot of letters"));
             } else {
-                noteBook.addNote(new Note(simpleDateFormat.parse("25.09.2020"), Activity.RELAX, "I like relax","to-do list " + i), i);
+                noteBook.addNote(new Note(simpleDateFormat.parse("25.09.2020"), Activity.RELAX, "I like relax","to-do list " + i));
             }
         }
-        Note note101 = new Note("read a magazine, analyze articles");
-        noteBook.addNote(note101, 100);
+        Note note101 = new Note("read a magazine, analyze 999999 articles");
+        noteBook.addNote(note101);
         System.out.println(delimiter + "output before to sort");
 
         noteBook.print();
@@ -42,5 +42,7 @@ public class NoteBookRunner {
         noteBook.print(noteBook.getNotesOf(Activity.FITNESS));
         System.out.println(delimiter + "output of notes from startDate to endDate");
         noteBook.print(noteBook.getNotesFromTo(simpleDateFormat.parse("25.07.2020"), simpleDateFormat.parse("25.10.2020")));
+        System.out.println(delimiter + "output of note from date");
+        System.out.println(noteBook.getNote(simpleDateFormat.parse("25.05.2020")));
     }
 }
