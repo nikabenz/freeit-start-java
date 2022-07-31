@@ -5,6 +5,8 @@ import java.util.Arrays;
 public class StrStrBuilderBufferEx {
     public static void main(String[] args) {
         String string = "I like Java!!!";
+        String source = "Я каждый день учу, учу, учу, учу, учу, учу, учу, учу Java!!!!";
+        System.out.println(source.replaceAll(" учу,", ""));
         System.out.println(string.charAt(string.length() - 1));
         System.out.println(string.endsWith("!!!"));
         System.out.println(string.startsWith("I like"));
