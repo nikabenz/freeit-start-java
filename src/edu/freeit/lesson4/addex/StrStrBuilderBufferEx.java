@@ -35,7 +35,17 @@ public class StrStrBuilderBufferEx {
             results[i].deleteCharAt(index).insert(index, " равно ");
             System.out.println(results[i].toString());
         }
-        System.out.println(Arrays.toString(takeTwoLettersFromMiddle("er", "erro", "practice", "hero", "lesson", "string", "code", "matter")));
+        String src = "Object-oriented programming is a programming language model organized around objects " +
+                "rather than \"actions\" and data rather than logic. Object-oriented programming blabla. " +
+                "Object-oriented programming bla. Object-oriented programming bla. Object-oriented programming bla. " +
+                "Object-oriented programming bla. Object-oriented programming bla. Object-oriented programming bla. " +
+                "Object-oriented programming bla. Object-oriented programming bla. Object-oriented programming bla.";
+        String from = "object-oriented programming";
+        String to = "OOP";
+        System.out.println(changeFromTo(new StringBuilder(src.toLowerCase()), from, to));
+        System.out.println(allChangeFromTo(new StringBuilder(src.toLowerCase()), from, to));
+        System.out.println(Arrays.toString(takeTwoLettersFromMiddle(
+                "er", "erro", "practice", "hero", "lesson", "string", "code", "matter")));
     }
 
     public static String[] takeTwoLettersFromMiddle(String... words) {
@@ -45,5 +55,28 @@ public class StrStrBuilderBufferEx {
             lettersFromMiddle[i] = words[i].substring(indexFrom, indexFrom + 2);
         }
         return lettersFromMiddle;
+    }
+
+    public static StringBuilder allChangeFromTo(StringBuilder src, String from, String to) {
+        int indexFrom;
+        int searchIndex = 0;
+        while ((indexFrom = src.indexOf(from)) != -1) {
+            src.replace(indexFrom, indexFrom + from.length(), to);
+            searchIndex++;
+        }
+        return src;
+    }
+
+    public static StringBuilder changeFromTo(StringBuilder src, String from, String to) {
+        int indexFrom = 0;
+        while (true) {
+            indexFrom = src.indexOf(from, from.length() + indexFrom);
+            if (indexFrom != -1 && indexFrom + from.length() < src.length()) {
+                src.replace(indexFrom, indexFrom + from.length(), to);
+            } else {
+                break;
+            }
+        }
+        return src;
     }
 }
