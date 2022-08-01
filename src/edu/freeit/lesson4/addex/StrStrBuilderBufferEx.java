@@ -42,8 +42,8 @@ public class StrStrBuilderBufferEx {
                 "Object-oriented programming bla. Object-oriented programming bla. Object-oriented programming bla.";
         String from = "object-oriented programming";
         String to = "OOP";
-        System.out.println(changeFromTo(new StringBuilder(src.toLowerCase()), from, to));
         System.out.println(allChangeFromTo(new StringBuilder(src.toLowerCase()), from, to));
+        System.out.println(changeFromTo(new StringBuilder(src.toLowerCase()), from, to));
         System.out.println(Arrays.toString(takeTwoLettersFromMiddle(
                 "er", "erro", "practice", "hero", "lesson", "string", "code", "matter")));
     }
@@ -59,10 +59,8 @@ public class StrStrBuilderBufferEx {
 
     public static StringBuilder allChangeFromTo(StringBuilder src, String from, String to) {
         int indexFrom;
-        int searchIndex = 0;
         while ((indexFrom = src.indexOf(from)) != -1) {
             src.replace(indexFrom, indexFrom + from.length(), to);
-            searchIndex++;
         }
         return src;
     }
@@ -71,7 +69,7 @@ public class StrStrBuilderBufferEx {
         int indexFrom = 0;
         while (true) {
             indexFrom = src.indexOf(from, from.length() + indexFrom);
-            if (indexFrom != -1 && indexFrom + from.length() < src.length()) {
+            if (indexFrom != -1) {
                 src.replace(indexFrom, indexFrom + from.length(), to);
             } else {
                 break;
