@@ -4,7 +4,7 @@ public class StringBuilderEx {
     public static void main(String[] args) {
         StringBuilder sb = arithmeticalStringBuilder(45, 67);
         System.out.println(sb);
-        System.out.println(change(sb));
+        System.out.println(changeFromTo(sb, "=", "eq"));
     }
 
     public static StringBuilder arithmeticalStringBuilder(int firstOperand, int secondOperand) {
@@ -19,11 +19,11 @@ public class StringBuilderEx {
         return result;
     }
 
-    public static StringBuilder change(StringBuilder result) {
+    public static StringBuilder changeFromTo(StringBuilder result, String from, String to) {
         int index;
-        while ((index = result.indexOf("=")) != -1) {
+        while ((index = result.indexOf(from)) != -1) {
             result.deleteCharAt(index);
-            result.insert(index, " equal ");
+            result.insert(index, to);
         }
         return result;
     }
