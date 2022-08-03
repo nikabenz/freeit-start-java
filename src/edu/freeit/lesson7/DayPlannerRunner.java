@@ -6,9 +6,10 @@ import java.util.GregorianCalendar;
 
 public class DayPlannerRunner {
     public static void main(String[] args) throws ParseException {
+        int dayCount = 365;
         String delimiter = "-".repeat(50);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        DayPlanner dayPlanner = new DayPlanner(111, " diary");
+        DayPlanner dayPlanner = new DayPlanner(dayCount, " diary");
         //fill dayPlanner
         Note note1 = new Note(new GregorianCalendar().getTime(), Activity.COOKING, "I like cooking", "read 999999 book in English");
         dayPlanner.addNote(note1);
@@ -16,15 +17,15 @@ public class DayPlannerRunner {
         dayPlanner.addNote(note2);
         Note note3 = new Note(simpleDateFormat.parse("25.05.2020"), Activity.FITNESS, "I like fitness", "write and read articles, analyze articles");
         dayPlanner.addNote(note3);
-        for (int i = 5; i < dayPlanner.getLength() - 100; i++) {
+        for (int i = 3; i < dayPlanner.getLength() - 354; i++) {
             if (i % 2 == 0) {
                 dayPlanner.addNote(new Note(simpleDateFormat.parse("25.07.2020"), Activity.FITNESS, "I like fitness", "to-do list " + i + " and read a lot of letters"));
             } else {
                 dayPlanner.addNote(new Note(simpleDateFormat.parse("25.09.2020"), Activity.RELAX, "I like relax", "to-do list " + i));
             }
         }
-        Note note101 = new Note("read a magazine, analyze 999999 articles");
-        dayPlanner.addNote(note101);
+        Note noteNext = new Note("read a magazine, analyze 999999 articles");
+        dayPlanner.addNote(noteNext);
         //daily planner is filling up
         System.out.println(delimiter + "output before to sort");
         dayPlanner.print();
