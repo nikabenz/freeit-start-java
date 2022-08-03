@@ -1,5 +1,7 @@
 package edu.freeit.lesson7;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.StringJoiner;
@@ -53,10 +55,10 @@ public class Note implements Comparable<Note> {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", Note.class.getSimpleName() + "[", "]")
-                .add("date=" + date)
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        return new StringJoiner(", ", "[", "]")
+                .add("date=" + simpleDateFormat.format(date))
                 .add("topic='" + type + "'")
-                .add("header='" + header + "'")
                 .add("text='" + text + "'")
                 .toString();
     }
