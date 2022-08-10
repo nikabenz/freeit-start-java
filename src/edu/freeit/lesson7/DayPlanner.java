@@ -4,25 +4,18 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.StringJoiner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DayPlanner implements NoteBook {
-    private int length;
-    private String category;
     private Note[] arrayOfNotes;
 
-    public DayPlanner() {
-        this.length = 30;
-        this.category = "to-do-list";
+    public DayPlanner(int length) {
         this.arrayOfNotes = new Note[length];
     }
 
-    public DayPlanner(int length, String category) {
-        this.length = length;
-        this.category = category;
-        this.arrayOfNotes = new Note[length];
+    public DayPlanner() {
+        this(30);
     }
 
     public Note[] getArrayOfNotes() {
@@ -38,16 +31,11 @@ public class DayPlanner implements NoteBook {
         return null;
     }
 
-    public int getLength() {
-        return length;
-    }
-
     public int getSizeOfArrayOfNotes() {
         int size = 0;
         for (Note note : arrayOfNotes) {
-            size++;
-            if (note == null) {
-                break;
+            if (note != null) {
+                size++;
             }
         }
         return size;
@@ -59,7 +47,6 @@ public class DayPlanner implements NoteBook {
         }
     }
 
-    @Override
     public void print(Note[] notes) {
         for (Note note : notes) {
             System.out.println(note + "\n");
@@ -69,7 +56,7 @@ public class DayPlanner implements NoteBook {
     @Override
     public boolean addNote(Note note) {
         boolean addedNote = false;
-        if (getSizeOfArrayOfNotes() != length) {
+        if (getSizeOfArrayOfNotes() != arrayOfNotes.length) {
             this.arrayOfNotes[getSizeOfArrayOfNotes()] = note;
             addedNote = true;
         }
@@ -77,16 +64,13 @@ public class DayPlanner implements NoteBook {
     }
 
     @Override
-    public Note updateNote(Date date, Note newNote) {
+    public Note updateNote(Date date, String text) {
         Note updatedNote = getNote(date);
         if (updatedNote != null) {
-            //setNote(Date date);
-            updatedNote = new Note(updatedNote.getText() + " " + newNote.getText());
-            updatedNote.setDate(date);
+            updatedNote.setText(updatedNote.getText() + ", " + text);
             return updatedNote;
         } else {
-            newNote.setDate(date);
-            return newNote;
+            return null;
         }
     }
 
@@ -149,10 +133,8 @@ public class DayPlanner implements NoteBook {
         return notesFromTo;
     }
 
-    public Note[] sort(Note[] notes) {
-        notes = defineArrayOfNotNullNotes();
-        Arrays.sort(notes);
-        return notes;
+    public void sort() {
+        Arrays.sort(defineArrayOfNotNullNotes());
     }
 
     public String defineFrequencyOfIndividualCase(String individualCase) {
@@ -163,16 +145,16 @@ public class DayPlanner implements NoteBook {
         int totalNumberOfCase = 0;
         int n;
         DateFormat dateFormat = new SimpleDateFormat("   dd.MM.yyyy ");
-        for (int i = 0; i < temp.length; i++) {
+        for (Note note : temp) {
             n = 0;
-            StringBuilder cases = new StringBuilder(temp[i].getText());
+            StringBuilder cases = new StringBuilder(note.getText());
             matcher = pattern.matcher(cases);
             while (matcher.find()) {
                 n++;
             }
             if (n != 0) {
                 totalNumberOfCase += n;
-                frequency.append(cases).append(dateFormat.format(temp[i].getDate())).append(";\n");
+                frequency.append(cases).append(dateFormat.format(note.getDate())).append(";\n");
             }
         }
         String delimiter = totalNumberOfCase == 1 ? " case -> \n" : " cases -> \n";
@@ -182,12 +164,5 @@ public class DayPlanner implements NoteBook {
     public Note[] defineArrayOfNotNullNotes() {
         this.arrayOfNotes = Arrays.copyOfRange(arrayOfNotes, 0, getSizeOfArrayOfNotes());
         return this.arrayOfNotes;
-    }
-
-    @Override
-    public String toString() {
-        return new StringJoiner(", ", "[", "]")
-                .add("category='" + category + "'")
-                .toString();
     }
 }

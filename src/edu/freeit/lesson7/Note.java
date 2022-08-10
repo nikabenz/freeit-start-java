@@ -1,7 +1,6 @@
 package edu.freeit.lesson7;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.StringJoiner;
@@ -9,7 +8,6 @@ import java.util.StringJoiner;
 public class Note implements Comparable<Note> {
     private Date date;
     private Activity type;
-    private String header;
     private String text;
 
     public Note() {
@@ -18,14 +16,12 @@ public class Note implements Comparable<Note> {
     public Note(String text) {
         this.date = new GregorianCalendar().getTime();
         this.type = Activity.PLANNING;
-        this.header = "to-do list";
         this.text = text;
     }
 
-    public Note(Date date, Activity type, String header, String text) {
+    public Note(Date date, Activity type, String text) {
         this.date = date;
         this.type = type;
-        this.header = header;
         this.text = text;
     }
 

@@ -7,11 +7,7 @@ public interface NoteBook {
 
     Note getNote(Date date);
 
-    Note updateNote(Date date, Note newNote);
+    Note updateNote(Date date, String text);
 
     Note deleteNote(Date date);
-
-    void print(Note[] notes);
-
-    Note[] sort(Note[] notes);
 }
