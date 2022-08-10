@@ -3,7 +3,7 @@ package edu.freeit.lesson7;
 import java.util.Date;
 
 public interface NoteBook {
-    void addNote(Note note);
+    boolean addNote(Note note);
 
     Note getNote(Date date);
 

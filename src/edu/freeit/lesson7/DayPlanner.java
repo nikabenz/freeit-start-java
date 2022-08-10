@@ -14,7 +14,7 @@ public class DayPlanner implements NoteBook {
     private Note[] arrayOfNotes;
 
     public DayPlanner() {
-        this.length = 10;
+        this.length = 30;
         this.category = "to-do-list";
         this.arrayOfNotes = new Note[length];
     }
@@ -45,8 +45,9 @@ public class DayPlanner implements NoteBook {
     public int getSizeOfArrayOfNotes() {
         int size = 0;
         for (Note note : arrayOfNotes) {
-            if (note != null) {
-                size++;
+            size++;
+            if (note == null) {
+                break;
             }
         }
         return size;
@@ -66,13 +67,27 @@ public class DayPlanner implements NoteBook {
     }
 
     @Override
-    public void addNote(Note note) {
-        this.arrayOfNotes[getSizeOfArrayOfNotes()] = note;
+    public boolean addNote(Note note) {
+        boolean addedNote = false;
+        if (getSizeOfArrayOfNotes() != length) {
+            this.arrayOfNotes[getSizeOfArrayOfNotes()] = note;
+            addedNote = true;
+        }
+        return addedNote;
     }
 
     @Override
     public Note updateNote(Date date, Note newNote) {
-        return null;
+        Note updatedNote = getNote(date);
+        if (updatedNote != null) {
+            //setNote(Date date);
+            updatedNote = new Note(updatedNote.getText() + " " + newNote.getText());
+            updatedNote.setDate(date);
+            return updatedNote;
+        } else {
+            newNote.setDate(date);
+            return newNote;
+        }
     }
 
     @Override
@@ -87,11 +102,14 @@ public class DayPlanner implements NoteBook {
                 break;
             }
         }
-        for (int i = index; i < temp.length - 1; i++) {
-            temp[i] = temp[i + 1];
+        if (deletedNote != null) {
+            for (int i = index; i < temp.length - 1; i++) {
+                temp[i] = temp[i + 1];
+            }
+            temp[temp.length - 1] = null;
+            return deletedNote;
         }
-        temp[temp.length - 1] = null;
-        return deletedNote;
+        return null;
     }
 
     public Note[] getNotesOf(Activity type) {
@@ -108,7 +126,10 @@ public class DayPlanner implements NoteBook {
                 j++;
             }
         }
-        return notesOfType;
+        if (notesOfType.length != 0) {
+            return notesOfType;
+        }
+        return null;
     }
 
     public Note[] getNotesFromTo(Date from, Date to) {
