@@ -14,6 +14,8 @@ public class DayPlannerRunner {
         Note note1 = new Note(new GregorianCalendar().getTime(), Activity.COOKING,
                 "read 999999 book in English");
         dayPlanner.addNote(note1);
+        System.out.println(dayPlanner.getArrayOfNotes().length);
+        System.out.println(dayPlanner.getSize());
         Note note2 = new Note(simpleDateFormat.parse("25.03.2020"), Activity.FITNESS,
                 "read a magazine");
         dayPlanner.addNote(note2);
@@ -54,7 +56,7 @@ public class DayPlannerRunner {
         System.out.println("jogging:\n" + dayPlanner.defineFrequencyOfIndividualCase("jogging"));
         System.out.println("digits:\n" + dayPlanner.defineFrequencyOfIndividualCase("\\d"));
 
-        System.out.println("number of diary entries -> " + dayPlanner.getSizeOfArrayOfNotes());
+        System.out.println("number of diary entries -> " + dayPlanner.getSize());
 
         System.out.println(delimiter + "output after to update of notes from date");
         System.out.println(dayPlanner.updateNote(simpleDateFormat.parse("25.09.2020"),

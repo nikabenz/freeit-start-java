@@ -33,6 +33,7 @@ public class Note implements Comparable<Note> {
         return type;
     }
 
+    @IsSecretContent(isSecret = false, reason = "text is only as an example")
     public String getText() {
         return text;
     }

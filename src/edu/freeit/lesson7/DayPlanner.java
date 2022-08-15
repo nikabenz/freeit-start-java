@@ -7,8 +7,10 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@IsSecretContent(reason = "just an example")
 public class DayPlanner implements NoteBook {
     private Note[] arrayOfNotes;
+    private int size;
 
     public DayPlanner(int length) {
         this.arrayOfNotes = new Note[length];
@@ -31,13 +33,7 @@ public class DayPlanner implements NoteBook {
         return null;
     }
 
-    public int getSizeOfArrayOfNotes() {
-        int size = 0;
-        for (Note note : arrayOfNotes) {
-            if (note != null) {
-                size++;
-            }
-        }
+    public int getSize() {
         return size;
     }
 
@@ -56,9 +52,10 @@ public class DayPlanner implements NoteBook {
     @Override
     public boolean addNote(Note note) {
         boolean addedNote = false;
-        if (getSizeOfArrayOfNotes() != arrayOfNotes.length) {
-            this.arrayOfNotes[getSizeOfArrayOfNotes()] = note;
+        if (getSize() != arrayOfNotes.length) {
+            this.arrayOfNotes[getSize()] = note;
             addedNote = true;
+            size++;
         }
         return addedNote;
     }
@@ -82,6 +79,7 @@ public class DayPlanner implements NoteBook {
         for (int i = 0; i < temp.length; i++) {
             if (temp[i].getDate().compareTo(date) == 0) {
                 deletedNote = temp[i];
+                size--;
                 index = i;
                 break;
             }
@@ -162,7 +160,7 @@ public class DayPlanner implements NoteBook {
     }
 
     public Note[] defineArrayOfNotNullNotes() {
-        this.arrayOfNotes = Arrays.copyOfRange(arrayOfNotes, 0, getSizeOfArrayOfNotes());
+        this.arrayOfNotes = Arrays.copyOfRange(arrayOfNotes, 0, getSize());
         return this.arrayOfNotes;
     }
 }
