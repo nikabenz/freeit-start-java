@@ -26,10 +26,11 @@ public class DayPlanner implements NoteBook {
 
     @Override
     public Note getNote(Date date) {
-        for (Note note : defineArrayOfNotNullNotes())
-            if (note.getDate().equals(date)) {
-                return note;
+        for (int i = 0; i < size; i++) {
+            if (arrayOfNotes[i].getDate().equals(date)) {
+                return arrayOfNotes[i];
             }
+        }
         return null;
     }
 
@@ -38,8 +39,8 @@ public class DayPlanner implements NoteBook {
     }
 
     public void print() {
-        for (Note note : defineArrayOfNotNullNotes()) {
-            System.out.println(note + "\n");
+        for (int i = 0; i < size; i++) {
+            System.out.println(arrayOfNotes[i] + "\n");
         }
     }
 
@@ -73,22 +74,21 @@ public class DayPlanner implements NoteBook {
 
     @Override
     public Note deleteNote(Date date) {
-        Note[] temp = defineArrayOfNotNullNotes();
         Note deletedNote = null;
         int index = 0;
-        for (int i = 0; i < temp.length; i++) {
-            if (temp[i].getDate().compareTo(date) == 0) {
-                deletedNote = temp[i];
+        for (int i = 0; i < size; i++) {
+            if (arrayOfNotes[i].getDate().compareTo(date) == 0) {
+                deletedNote = arrayOfNotes[i];
                 size--;
                 index = i;
                 break;
             }
         }
         if (deletedNote != null) {
-            for (int i = index; i < temp.length - 1; i++) {
-                temp[i] = temp[i + 1];
+            for (int i = index; i < size - 1; i++) {
+                arrayOfNotes[i] = arrayOfNotes[i + 1];
             }
-            temp[temp.length - 1] = null;
+            arrayOfNotes[size - 1] = null;
             return deletedNote;
         }
         return null;
@@ -96,15 +96,15 @@ public class DayPlanner implements NoteBook {
 
     public Note[] getNotesOf(Activity type) {
         int count = 0;
-        for (Note note : defineArrayOfNotNullNotes()) {
-            if (note.getType().equals(type)) {
+        for (int i = 0; i < size; i++) {
+            if (arrayOfNotes[i].getType().equals(type)) {
                 count++;
             }
         }
         Note[] notesOfType = new Note[count];
-        for (int i = 0, j = 0; i < defineArrayOfNotNullNotes().length; i++) {
-            if (getArrayOfNotes()[i].getType().equals(type)) {
-                notesOfType[j] = getArrayOfNotes()[i];
+        for (int i = 0, j = 0; i < size; i++) {
+            if (arrayOfNotes[i].getType().equals(type)) {
+                notesOfType[j] = arrayOfNotes[i];
                 j++;
             }
         }
@@ -116,15 +116,15 @@ public class DayPlanner implements NoteBook {
 
     public Note[] getNotesFromTo(Date from, Date to) {
         int count = 0;
-        for (Note note : defineArrayOfNotNullNotes()) {
-            if (note.getDate().after(from) && note.getDate().before(to)) {
+        for (int i = 0; i < size; i++) {
+            if (arrayOfNotes[i].getDate().after(from) && arrayOfNotes[i].getDate().before(to)) {
                 count++;
             }
         }
         Note[] notesFromTo = new Note[count];
-        for (int i = 0, j = 0; i < defineArrayOfNotNullNotes().length; i++) {
-            if (getArrayOfNotes()[i].getDate().after(from) && getArrayOfNotes()[i].getDate().before(to)) {
-                notesFromTo[j] = getArrayOfNotes()[i];
+        for (int i = 0, j = 0; i < size; i++) {
+            if (arrayOfNotes[i].getDate().after(from) && arrayOfNotes[i].getDate().before(to)) {
+                notesFromTo[j] = arrayOfNotes[i];
                 j++;
             }
         }
@@ -132,35 +132,29 @@ public class DayPlanner implements NoteBook {
     }
 
     public void sort() {
-        Arrays.sort(defineArrayOfNotNullNotes());
+        Arrays.sort(Arrays.copyOfRange(arrayOfNotes, 0, size));
     }
 
     public String defineFrequencyOfIndividualCase(String individualCase) {
         Pattern pattern = Pattern.compile(".*" + individualCase + ".*");
         Matcher matcher;
-        Note[] temp = defineArrayOfNotNullNotes();
         StringBuilder frequency = new StringBuilder();
         int totalNumberOfCase = 0;
         int n;
         DateFormat dateFormat = new SimpleDateFormat("   dd.MM.yyyy ");
-        for (Note note : temp) {
+        for (int i = 0; i < size; i++) {
             n = 0;
-            StringBuilder cases = new StringBuilder(note.getText());
+            StringBuilder cases = new StringBuilder(arrayOfNotes[i].getText());
             matcher = pattern.matcher(cases);
             while (matcher.find()) {
                 n++;
             }
             if (n != 0) {
                 totalNumberOfCase += n;
-                frequency.append(cases).append(dateFormat.format(note.getDate())).append(";\n");
+                frequency.append(cases).append(dateFormat.format(arrayOfNotes[i].getDate())).append(";\n");
             }
         }
         String delimiter = totalNumberOfCase == 1 ? " case -> \n" : " cases -> \n";
         return totalNumberOfCase + delimiter + frequency;
-    }
-
-    public Note[] defineArrayOfNotNullNotes() {
-        this.arrayOfNotes = Arrays.copyOfRange(arrayOfNotes, 0, getSize());
-        return this.arrayOfNotes;
     }
 }
