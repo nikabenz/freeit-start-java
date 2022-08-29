@@ -85,10 +85,10 @@ public class DayPlanner implements NoteBook {
             }
         }
         if (deletedNote != null) {
-            for (int i = index; i < size - 1; i++) {
+            for (int i = index; i < size; i++) {
                 arrayOfNotes[i] = arrayOfNotes[i + 1];
             }
-            arrayOfNotes[size - 1] = null;
+            arrayOfNotes[size] = null;
             return deletedNote;
         }
         return null;
@@ -132,7 +132,7 @@ public class DayPlanner implements NoteBook {
     }
 
     public void sort() {
-        Arrays.sort(Arrays.copyOfRange(arrayOfNotes, 0, size));
+        Arrays.sort(arrayOfNotes, 0, size);
     }
 
     public String defineFrequencyOfIndividualCase(String individualCase) {
