@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<catalogue>
+    <book>
+        <title>Oak 2</title>
+        <author>Frodo</author>
+        <price>
+            <value>9</value>
+            <currency code="978">EUR</currency>
+        </price>
+    </book>
+    <book>
+        <title>Tree 45</title>
+        <author>Gollum</author>
+        <price>
+            <value>28.9</value>
+            <currency code="840">USD</currency>
+        </price>
+    </book>
+    <book>
+        <title>Forest 7</title>
+        <author>Dragon</author>
+        <price>
+            <value>13.5</value>
+            <currency code="978">EUR</currency>
+        </price>
+    </book>
+    <book>
+        <title>Valley 99</title>
+        <author>Gandalf</author>
+        <price>
+            <value>15.7</value>
+            <currency code="978">EUR</currency>
+        </price>
+    </book>
+    <book>
+        <title>Mountain 100</title>
+        <author>Bilbo</author>
+        <price>
+            <value>22</value>
+            <currency code="840">USD</currency>
+        </price>
+    </book>
+</catalogue>
