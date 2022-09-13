@@ -46,7 +46,7 @@ public class Runner {
                 case THIRD -> service.downloadBooks(library, XML_FROM, BookParserType.STAX);
             }
             service.checkCatalogue(library);
-            System.out.println("С помощью какого инструмента выгружаем каталог? 1 - DOM, 2 - StAX, 3 - StAX-Event");
+            System.out.println("С помощью какого инструмента выгружаем каталог? 1 - DOM, 2 - StAX-Stream, 3 - StAX-Event");
             do {
                 user = scanner.nextLine().trim();
                 if (user.equals(FIRST) || user.equals(SECOND) || user.equals(THIRD)) {

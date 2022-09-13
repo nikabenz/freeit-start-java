@@ -12,7 +12,6 @@ import java.util.List;
 public class BooksHandler extends DefaultHandler {
     private Book book;
     private Price price;
-
     List<Book> listBooks;
     private boolean title = false;
     private boolean author = false;

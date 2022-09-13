@@ -1,7 +1,6 @@
 package edu.freeit.lesson16.example.service.sax;
 
 import edu.freeit.lesson16.example.model.Library;
-import edu.freeit.lesson16.example.service.sax.BooksHandler;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
