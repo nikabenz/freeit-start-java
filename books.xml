@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<BookCatalogue>
+    <book>
+        <Title>Java. Methods programming</Title>
+        <Author>Blinov</Author>
+        <Date>2001</Date>
+        <ISBN>81-40-34319-4</ISBN>
+        <Publisher>BSU</Publisher>
+        <Cost currency="EUR">11.50</Cost>
+    </book>
+    <book>
+        <Title>Java. Programming patterns</Title>
+        <Author>Gang of four</Author>
+        <Date>2004</Date>
+        <ISBN>0-06-064831-7</ISBN>
+        <Publisher>Some publisher</Publisher>
+        <Cost currency="USD">21.4</Cost>
+    </book>
+</BookCatalogue>

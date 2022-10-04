@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE notes [
+        <!ELEMENT notes (note*)>
+        <!ELEMENT note (date, topic, text)>
+        <!ELEMENT date (#PCDATA)>
+        <!ELEMENT topic (#PCDATA)>
+        <!ELEMENT text (activity*)>
+        <!ELEMENT activity (#PCDATA)>
+        <!ATTLIST note id CDATA #REQUIRED>
+        <!ATTLIST activity time CDATA #REQUIRED>
+        ]>
+<notes>
+    <note id="1">
+        <date>02.09.2022</date>
+        <topic>fitness</topic>
+        <text>
+            <activity time="08:00">jogging</activity>
+            <activity time="11:00">fitness</activity>
+            <activity time="12:00">water poll</activity>
+            <activity time="20:00">tae bo</activity>
+            <activity time="20:30">karate</activity>
+            <activity time="21:00">stretch</activity>
+        </text>
+    </note>
+    <note id="2">
+        <date>03.09.2022</date>
+        <topic>study</topic>
+        <text>
+            <activity time="08:00">English</activity>
+            <activity time="12:00">Java</activity>
+            <activity time="20:00">Deutsch</activity>
+        </text>
+    </note>
+    <note id="3">
+        <date>04.09.2022</date>
+        <topic>workflows</topic>
+        <text>
+            <activity time="08:00">write</activity>
+            <activity time="10:00">read</activity>
+            <activity time="14:00">meeting</activity>
+        </text>
+    </note>
+    <note id="4">
+        <date>05.09.2022</date>
+        <topic>workflows</topic>
+        <text>
+            <activity time="08:00">write</activity>
+            <activity time="10:00">read</activity>
+            <activity time="14:00">meeting</activity>
+        </text>
+    </note>
+    <note id="5">
+        <date>06.09.2022</date>
+        <topic>relax</topic>
+        <text>
+            <activity time="12:00">walk in the park</activity>
+            <activity time="16:00">routine</activity>
+        </text>
+    </note>
+</notes>

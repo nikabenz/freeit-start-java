@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="notes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="note" type="note" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="note">
+        <xs:sequence>
+            <xs:element name="data" type="xs:string"/>
+            <xs:element name="topic" type="xs:string"/>
+            <xs:element name="activities">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="activity" type="activity" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="activity">
+        <xs:sequence>
+            <xs:element name="time" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
