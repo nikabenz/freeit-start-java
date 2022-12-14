@@ -17,14 +17,15 @@ public class Runner {
     public static final String FIRST = "1";
     public static final String SECOND = "2";
     public static final String THIRD = "3";
+    public static final String END = "End";
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         String user;
-        System.out.println("Хотите посмотреть каталог? выход - q");
+        System.out.println("Do You want to see the catalog? Exit - q");
         user = scanner.nextLine().trim().toLowerCase();
         if (user.equals("q")) {
-            System.out.println("Вы вышли");
+            System.out.println(END);
             scanner.close();
             return;
         }
@@ -32,13 +33,13 @@ public class Runner {
         LibraryService service = new LibraryService();
         do {
             service.checkCatalogue(library);
-            System.out.println("С помощью какого инструмента заполняем каталог? 1 - DOM, 2 - SAX, 3 - StAX");
+            System.out.println("With which tool do we download the catalogue? 1 - DOM, 2 - SAX, 3 - StAX");
             do {
                 user = scanner.nextLine().trim();
                 if (user.equals(FIRST) || user.equals(SECOND) || user.equals(THIRD)) {
                     break;
                 }
-                System.out.println("Сделайте выбор: 1 - DOM, 2 - SAX, 3 - StAX");
+                System.out.println("Make your choice: 1 - DOM, 2 - SAX, 3 - StAX");
             } while (true);
             switch (user) {
                 case FIRST -> service.downloadBooks(library, XML_FROM, BookParserType.DOM);
@@ -46,13 +47,13 @@ public class Runner {
                 case THIRD -> service.downloadBooks(library, XML_FROM, BookParserType.STAX);
             }
             service.checkCatalogue(library);
-            System.out.println("С помощью какого инструмента выгружаем каталог? 1 - DOM, 2 - StAX-Stream, 3 - StAX-Event");
+            System.out.println("With which tool do we unload the catalog? 1 - DOM, 2 - StAX-Stream, 3 - StAX-Event");
             do {
                 user = scanner.nextLine().trim();
                 if (user.equals(FIRST) || user.equals(SECOND) || user.equals(THIRD)) {
                     break;
                 }
-                System.out.println("Сделайте выбор: 1 - DOM, 2 - StAX-Stream, 3 - StAX-Event");
+                System.out.println("Make your choice: 1 - DOM, 2 - StAX-Stream, 3 - StAX-Event");
             } while (true);
             switch (user) {
                 case FIRST -> service.unloadBooks(library, XML_TO, BookWriterType.DOM);
@@ -60,10 +61,10 @@ public class Runner {
                 case THIRD -> service.unloadBooks(library, XML_TO, BookWriterType.STAX_EVENT);
             }
             service.checkCatalogue(library);
-            System.out.println("Ещё? y/n");
+            System.out.println("Try again? y/n");
             user = scanner.nextLine().trim().toLowerCase();
         } while (!user.equals("n"));
-        System.out.println("Завершили");
+        System.out.println(END);
         scanner.close();
     }
 }
